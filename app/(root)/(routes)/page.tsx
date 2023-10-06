@@ -10,7 +10,7 @@ const SetupPage = () => {
   useEffect(() => {
     if (!isOpen) onOpen();
   }, [isOpen, onOpen]);
-  return <div>Root page</div>;
+  return null;
 };
 
 export default SetupPage;
