@@ -21,9 +21,9 @@ import { Input } from '@/components/ui/input';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
-import { AlertModel } from '@/components/modals/alart-model';
 import { ApiAlert } from '@/components/ui/api-alert';
 import { useOrigin } from '@/hooks/use-origin';
+import { AlertModal } from '@/components/modals/alert-modal';
 
 interface SettingsFormProps {
   initialData: Store;
@@ -40,7 +40,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
   const router = useRouter();
 
   const origin = useOrigin();
-  
+
   const form = useForm<SettingsFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData,
@@ -70,7 +70,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
   };
   return (
     <>
-      <AlertModel
+      <AlertModal
         isOpen={open}
         onClose={() => setOpen(false)}
         onConfirm={onDelete}
